@@ -1,4 +1,8 @@
-D:\c drive\webCoreApp\WebApplication1\src\WebApplication1\bin\Debug\netcoreapp1.1\LingwlHead.deps.json
-D:\c drive\webCoreApp\WebApplication1\src\WebApplication1\bin\Debug\netcoreapp1.1\LingwlHead.runtimeconfig.json
-D:\c drive\webCoreApp\WebApplication1\src\WebApplication1\bin\Debug\netcoreapp1.1\LingwlHead.runtimeconfig.dev.json
-D:\c drive\webCoreApp\WebApplication1\src\WebApplication1\obj\Debug\netcoreapp1.1\LingwlHead.csprojResolveAssemblyReference.cache
+D:\c drive\webCoreApp\Lingwl\src\LingwlHead\bin\Debug\netcoreapp1.1\LingwlHead.deps.json
+D:\c drive\webCoreApp\Lingwl\src\LingwlHead\bin\Debug\netcoreapp1.1\LingwlHead.runtimeconfig.json
+D:\c drive\webCoreApp\Lingwl\src\LingwlHead\bin\Debug\netcoreapp1.1\LingwlHead.runtimeconfig.dev.json
+D:\c drive\webCoreApp\Lingwl\src\LingwlHead\bin\Debug\netcoreapp1.1\LingwlHead.dll
+D:\c drive\webCoreApp\Lingwl\src\LingwlHead\bin\Debug\netcoreapp1.1\LingwlHead.pdb
+D:\c drive\webCoreApp\Lingwl\src\LingwlHead\obj\Debug\netcoreapp1.1\LingwlHead.AssemblyInfo.cs
+D:\c drive\webCoreApp\Lingwl\src\LingwlHead\obj\Debug\netcoreapp1.1\LingwlHead.dll
+D:\c drive\webCoreApp\Lingwl\src\LingwlHead\obj\Debug\netcoreapp1.1\LingwlHead.pdb
