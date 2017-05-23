@@ -1,0 +1,16 @@
+C:\Users\ostdm\Desktop\webCoreApp\WebApplication1\src\WebApplication1\bin\Debug\netcoreapp1.1\WebApplication1.deps.json
+C:\Users\ostdm\Desktop\webCoreApp\WebApplication1\src\WebApplication1\bin\Debug\netcoreapp1.1\WebApplication1.runtimeconfig.json
+C:\Users\ostdm\Desktop\webCoreApp\WebApplication1\src\WebApplication1\bin\Debug\netcoreapp1.1\WebApplication1.runtimeconfig.dev.json
+C:\Users\ostdm\Desktop\webCoreApp\WebApplication1\src\WebApplication1\bin\Debug\netcoreapp1.1\WebApplication1.dll
+C:\Users\ostdm\Desktop\webCoreApp\WebApplication1\src\WebApplication1\bin\Debug\netcoreapp1.1\WebApplication1.pdb
+C:\Users\ostdm\Desktop\webCoreApp\WebApplication1\src\WebApplication1\obj\Debug\netcoreapp1.1\WebApplication1.AssemblyInfo.cs
+C:\Users\ostdm\Desktop\webCoreApp\WebApplication1\src\WebApplication1\obj\Debug\netcoreapp1.1\WebApplication1.dll
+C:\Users\ostdm\Desktop\webCoreApp\WebApplication1\src\WebApplication1\obj\Debug\netcoreapp1.1\WebApplication1.pdb
+D:\c drive\webCoreApp\WebApplication1\src\WebApplication1\bin\Debug\netcoreapp1.1\WebApplication1.deps.json
+D:\c drive\webCoreApp\WebApplication1\src\WebApplication1\bin\Debug\netcoreapp1.1\WebApplication1.runtimeconfig.json
+D:\c drive\webCoreApp\WebApplication1\src\WebApplication1\bin\Debug\netcoreapp1.1\WebApplication1.runtimeconfig.dev.json
+D:\c drive\webCoreApp\WebApplication1\src\WebApplication1\bin\Debug\netcoreapp1.1\WebApplication1.dll
+D:\c drive\webCoreApp\WebApplication1\src\WebApplication1\bin\Debug\netcoreapp1.1\WebApplication1.pdb
+D:\c drive\webCoreApp\WebApplication1\src\WebApplication1\obj\Debug\netcoreapp1.1\WebApplication1.AssemblyInfo.cs
+D:\c drive\webCoreApp\WebApplication1\src\WebApplication1\obj\Debug\netcoreapp1.1\WebApplication1.dll
+D:\c drive\webCoreApp\WebApplication1\src\WebApplication1\obj\Debug\netcoreapp1.1\WebApplication1.pdb

@@ -1,0 +1,4 @@
+D:\c drive\webCoreApp\WebApplication1\src\WebApplication1\bin\Debug\netcoreapp1.1\LingwlHead.deps.json
+D:\c drive\webCoreApp\WebApplication1\src\WebApplication1\bin\Debug\netcoreapp1.1\LingwlHead.runtimeconfig.json
+D:\c drive\webCoreApp\WebApplication1\src\WebApplication1\bin\Debug\netcoreapp1.1\LingwlHead.runtimeconfig.dev.json
+D:\c drive\webCoreApp\WebApplication1\src\WebApplication1\obj\Debug\netcoreapp1.1\LingwlHead.csprojResolveAssemblyReference.cache
