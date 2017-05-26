@@ -41,7 +41,7 @@
             "trace"
         ],
         "max-line-length": [
-            true,
+            false,
             100
         ],
         "no-string-literal": false,

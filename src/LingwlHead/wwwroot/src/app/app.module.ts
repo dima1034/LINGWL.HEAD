@@ -31,6 +31,7 @@ import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 import { HomeComponent } from './home';
+import { InnerComponent } from './inner';
 import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
 import { XLargeDirective } from './home/x-large';
@@ -38,7 +39,7 @@ import { XLargeDirective } from './home/x-large';
 import '../styles/styles.scss';
 import '../styles/headings.css';
 
-// Application wide providers
+// Application wide providers. Provider - thats code which can return or create a service. Typically the service class itself.
 const APP_PROVIDERS = [
 	...APP_RESOLVER_PROVIDERS,
 	AppState
@@ -60,11 +61,12 @@ type StoreType = {
 		AboutComponent,
 		HomeComponent,
 		NoContentComponent,
-		XLargeDirective
+		XLargeDirective,
+		InnerComponent
 	],
 	imports: [ // import Angular's modules, this modules will be available to all of the components
 		BrowserModule,
-		FormsModule,
+		FormsModule, // ngModel
 		HttpModule,
 		RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
 	],
@@ -77,8 +79,7 @@ export class AppModule {
 
 	constructor(
 		public appRef: ApplicationRef,
-		public appState: AppState
-	) { }
+		public appState: AppState) {}
 
 	public hmrOnInit(store: StoreType) {
 		if (!store || !store.state) {

@@ -7,6 +7,7 @@ import {
 /*
  * Directive
  * XLarge is a simple directive to show how one is made
+ * XLarge - простая директива, показывающая, как это делается
  */
 @Directive({
   selector: '[x-large]' // using [ ] means selecting attributes

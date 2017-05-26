@@ -13,3 +13,9 @@ export const ROUTES: Routes = [
   { path: 'barrel', loadChildren: './+barrel#BarrelModule'},
   { path: '**',    component: NoContentComponent },
 ];
+
+/**
+ * pathMatch: 'full' means, that the whole URL path needs to match and is consumed by the route matching algorithm.
+ * pathMatch: 'prefix' means, the first route where the path matches the start of the URL is choosen, but then the
+ * route matching algorithm is continuing searching for matching child routes where the rest of the URL matches.
+ */

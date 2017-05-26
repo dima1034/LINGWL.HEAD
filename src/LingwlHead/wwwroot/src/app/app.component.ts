@@ -84,6 +84,6 @@ export class AppComponent implements OnInit {
 
 
 /** DOCUMENTATION
- *  router-outlet - в нем отображаеться шаблон выбраного(в роутере) компонента
+ *  router-outlet(default angular2 feature) - в нем отображаеться шаблон выбраного(в роутере) компонента
  * 
  */

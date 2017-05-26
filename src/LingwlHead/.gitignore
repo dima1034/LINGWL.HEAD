@@ -54,6 +54,10 @@ wwwroot/dll/**
 # Doc #
 /doc/
 
+# VStudio #
+/bin/
+/obj/
+
 # IDE #
 .idea/
 *.swp

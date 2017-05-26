@@ -99,7 +99,7 @@ module.exports = function (env) {
                         fallback: 'style-loader',
                         use: 'css-loader'
                     }),
-                    include: [helpers.wwwroot('src', 'styles')]
+                    include: [helpers.root('src/styles')]
                 },
 
                 /*
@@ -111,7 +111,7 @@ module.exports = function (env) {
                         fallback: 'style-loader',
                         use: 'css-loader!sass-loader'
                     }),
-                    include: [helpers.wwwroot('src', 'styles')]
+                    include: [helpers.root('src/styles')]
                 },
 
             ]
