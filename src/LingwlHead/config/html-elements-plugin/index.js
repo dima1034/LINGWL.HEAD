@@ -1,19 +1,28 @@
-//const Debugger = require('debug-webpack-plugin').Debugger;
-
 function HtmlElementsPlugin(locations) {
     this.locations = locations;
 }
+/**
+ * 
+ * That's the basic rule for creating custom Plugins:
+ * SOMEPLUGIN.prototype.apply = function(compiler) {}
+ *  
+ */
 
 HtmlElementsPlugin.prototype.apply = function (compiler) {
     var self = this;
     
-    //var dbg = Debugger(compiler).create('webpack:plugin:HtmlElementsPlugin');
+    // setting up a callback for accessesing a compilation
     compiler.plugin('compilation', function (compilation) {
         compilation.options.htmlElements = compilation.options.htmlElements || {};
 
-        // Log something with the namespaced debugger
-        //dbg.log('The plugin is logging something');
-
+/**
+ * To allow other plugins to alter the HTML this plugin executes the following events:
+ *  html-webpack-plugin-before-html-generation
+ *  html-webpack-plugin-before-html-processing
+ *  html-webpack-plugin-alter-asset-tags
+ *  html-webpack-plugin-after-html-processing
+ *  html-webpack-plugin-after-emit
+ */ 
         compilation.plugin('html-webpack-plugin-before-html-generation', function (htmlPluginData, callback) {
             const locations = self.locations;
 

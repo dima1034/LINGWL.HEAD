@@ -1,14 +1,13 @@
 {
     "version": "0.2.0",
     "configurations": [
-        
         {
             "name": ".NET Core Launch (web)",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
             //"program": "${workspaceRoot}/bin/Debug/netcoreapp1.0/<project-name.dll>",
-            "program": "${workspaceRoot}/bin/Debug/netcoreapp1.1/WebApplication1.dll",
+            "program": "${workspaceRoot}/bin/Debug/netcoreapp1.1/LingwlHead.dll",
             "args": [],
             "cwd": "${workspaceRoot}",
             "stopAtEntry": false,
@@ -30,7 +29,7 @@
                 "ASPNETCORE_ENVIRONMENT": "Development"
             },
             "sourceFileMap": {
-               
+              
             }
         },
         {
@@ -41,3 +40,5 @@
         }
     ]
 }
+
+// "/Views": "${workspaceRoot}/wwwroot/dist/index.html"
