@@ -18,4 +18,9 @@ export const ROUTES: Routes = [
  * pathMatch: 'full' means, that the whole URL path needs to match and is consumed by the route matching algorithm.
  * pathMatch: 'prefix' means, the first route where the path matches the start of the URL is choosen, but then the
  * route matching algorithm is continuing searching for matching child routes where the rest of the URL matches.
+ *
+ * ActivatedRouteSnapshot (interface)
+ * route.snapshot - contains the information about a route associated with a component loaded in an outlet at a particular moment in time.
  */
+
+

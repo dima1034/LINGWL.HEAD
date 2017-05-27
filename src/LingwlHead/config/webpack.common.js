@@ -26,7 +26,7 @@ const DebugWebpackPlugin = require('debug-webpack-plugin');
 const HMR = helpers.hasProcessFlag('hot');
 const AOT = helpers.hasNpmFlag('aot');
 const METADATA = {
-      title: 'Angular2 Webpack Starter by @gdi2290 from @dima1034',
+      title: 'Angular2 Webpack Starter by gdi2290 from dima1034',
       baseUrl: '/',
       isDevServer: helpers.isWebpackDevServer()
 };
@@ -117,16 +117,19 @@ module.exports = function (options) {
                                                 genDir: 'compiled',
                                                 aot: AOT
                                           }
-                                    },
-                                    {
+                                    }, {
                                           loader: 'awesome-typescript-loader',
                                           options: {
                                                 configFileName: 'tsconfig.webpack.json'
                                           }
-                                    },
-                                    {
+                                    }, {
+                                          loader: 'angular2-template-loader'
+                                    }, {
+                                          loader: 'angular-router-loader'
+                                    }, {
                                           loader: 'angular2-template-loader'
                                     }
+
                               ],
                               exclude: [/\.(spec|e2e)\.ts$/]
                         },
@@ -228,7 +231,7 @@ module.exports = function (options) {
                   }),
                   // This enables tree shaking of the vendor modules
                   new CommonsChunkPlugin({
-                        
+
                         name: 'vendor',
                         //явно указываем из каких модулей нужно выносить общий функционал
                         chunks: ['main'],
@@ -269,9 +272,13 @@ module.exports = function (options) {
                    *
                    * See: https://www.npmjs.com/package/copy-webpack-plugin
                    */
-                  new CopyWebpackPlugin([
-                        { from: 'wwwroot/src/assets', to: 'assets' },
-                        { from: 'wwwroot/src/meta' }
+                  new CopyWebpackPlugin([{
+                              from: 'wwwroot/src/assets',
+                              to: 'assets'
+                        },
+                        {
+                              from: 'wwwroot/src/meta'
+                        }
                   ]),
 
                   /*
@@ -288,6 +295,13 @@ module.exports = function (options) {
                         chunksSortMode: 'dependency',
                         metadata: METADATA,
                         inject: 'head'
+                  }),
+                  new HtmlWebpackPlugin({
+                        template: 'wwwroot/src/Index.cshtml',
+                        filename: '../../Views/Home/Index.cshtml',
+                        title: METADATA.title,
+                        chunksSortMode: 'dependency',
+                        metadata: METADATA
                   }),
 
                   /*
@@ -333,12 +347,12 @@ module.exports = function (options) {
                    * See: https://gist.github.com/sokra/27b24881210b56bbaff7
                    */
                   new LoaderOptionsPlugin({}),
- 
+
                   /**
                    * Plugin: CopyWebpackPlugin
                    * Description: The NormalModuleReplacementPlugin allows you to replace resources that match resourceRegExp with newResource
                    */
-                  
+
                   // Fix Angular 2
                   new NormalModuleReplacementPlugin(
                         /facade(\\|\/)async/,

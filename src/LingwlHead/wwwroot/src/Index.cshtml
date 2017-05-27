@@ -1,0 +1,20 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@section head {
+    <meta name="description" content="<%= htmlWebpackPlugin.options.title %>">
+    <% if (webpackConfig.htmlElements.headTags) { %>
+        <!-- Configured Head Tags  -->
+        <%= webpackConfig.htmlElements.headTags %>
+    <% } %>
+    <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+        <script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
+    <% } %>
+    <!-- base url -->
+    <base href="<%= htmlWebpackPlugin.options.metadata.baseUrl %>">
+}
+
+<app>
+    Loading...
+</app>

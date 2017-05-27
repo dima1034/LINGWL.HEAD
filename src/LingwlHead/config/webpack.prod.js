@@ -52,13 +52,19 @@ module.exports = function (env) {
          * See: http://webpack.github.io/docs/configuration.html#output
          */
         output: {
+            
+            /**             
+             * How's we see our paths from enternet 
+             *
+             */
+            publicPath: '/dist/',
 
             /**
              * The output directory as absolute path (required).
              *
              * See: http://webpack.github.io/docs/configuration.html#output-path
              */
-            path: helpers.root('dist'),
+            path: helpers.wwwroot('dist'),
 
             /**
              * Specifies the name of each output file on disk.

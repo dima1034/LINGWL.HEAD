@@ -16,7 +16,8 @@ const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
 const NamedModulesPlugin = require('webpack/lib/NamedModulesPlugin');
 const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const DllBundlesPlugin = require('webpack-dll-bundles-plugin').DllBundlesPlugin;
 /**
  * Webpack Constants
  */
@@ -33,7 +34,7 @@ const METADATA = webpackMerge(commonConfig({
     HMR: HMR
 });
 
-const DllBundlesPlugin = require('webpack-dll-bundles-plugin').DllBundlesPlugin;
+
 
 /**
  * Webpack configuration
@@ -64,7 +65,7 @@ module.exports = function (options) {
              * How's we see our paths from enternet 
              *
              */
-             publicPath: '/dist/',
+            publicPath: '/dist/',
 
             /**
              * The output directory as absolute path (required).
@@ -105,11 +106,18 @@ module.exports = function (options) {
             rules: [{
                     test: /\.ts$/,
                     use: [{
-                        loader: 'tslint-loader',
-                        options: {
-                            configFile: 'tslint.json'
-                        }
+                            loader: 'tslint-loader',
+                            options: { 
+                                configFile: 'tslint.json'
+                            }
+                        }, {
+                            loader: 'angular2-template-loader'
+                        }, {
+                            loader: 'angular-router-loader'
+                        }, {
+                            loader: 'angular2-template-loader'
                     }],
+
                     exclude: [/\.(spec|e2e)\.ts$/]
                 },
 
