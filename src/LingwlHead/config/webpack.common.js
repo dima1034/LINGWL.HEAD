@@ -301,7 +301,8 @@ module.exports = function (options) {
                         filename: '../../Views/Home/Index.cshtml',
                         title: METADATA.title,
                         chunksSortMode: 'dependency',
-                        metadata: METADATA
+                        metadata: METADATA,
+						inject: false
                   }),
 
                   /*
