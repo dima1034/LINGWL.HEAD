@@ -1,0 +1,12 @@
+
+.book-cls-1 { fill: url(#book-linear-gradient); }
+.book-cls-2 { fill: #fff; fill-rule: evenodd; }
+
+.bookmark-cls-1 { fill: red; fill-rule: evenodd; }
+
+.movie-cls-1 { fill-rule: evenodd; }
+.movie-cls-2 { fill: url(#movie-linear-gradient); }
+
+.music-cls-1 { fill: #fff; }
+.music-cls-2 { fill-rule: evenodd; fill: url(#music-linear-gradient); }
+

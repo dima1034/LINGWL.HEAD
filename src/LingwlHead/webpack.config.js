@@ -6,7 +6,7 @@ switch (process.env.ASPNETCORE_ENVIRONMENT) {
         module.exports = require('./config/webpack.prod');
         break;
     default:
-        module.exports = require('./config/webpack.prod');
+        module.exports = require('./config/webpack.dev');
         break;
 }
 

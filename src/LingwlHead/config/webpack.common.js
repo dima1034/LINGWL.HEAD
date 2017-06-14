@@ -4,6 +4,7 @@
 
 const webpack = require('webpack');
 const helpers = require('./helpers');
+require('../node_modules/bootstrap-loader/lib/bootstrap.loader');
 
 /*
  * Webpack Plugins
@@ -15,6 +16,7 @@ const NoEmitOnErrorsPlugin = require("webpack/lib/NoEmitOnErrorsPlugin");
 const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
 const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CheckerPlugin = require('awesome-typescript-loader').CheckerPlugin;
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
@@ -22,6 +24,9 @@ const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const ngcWebpack = require('ngc-webpack');
 const HtmlElementsPlugin = require('./html-elements-plugin');
 const DebugWebpackPlugin = require('debug-webpack-plugin');
+const ProvidePlugin = require('webpack/lib/ProvidePlugin');
+const bootstrapEntryPoints = require('../webpack.bootstrap.config.js');
+const bootstrapConfig = process.env.NODE_ENV === 'production' ? bootstrapEntryPoints.prod : bootstrapEntryPoints.dev;
 
 const HMR = helpers.hasProcessFlag('hot');
 const AOT = helpers.hasNpmFlag('aot');
@@ -37,6 +42,7 @@ const METADATA = {
  */
 module.exports = function (options) {
       isProd = options.env === 'production';
+
       return {
             /*
              * Cache generated modules and chunks to improve performance for multiple incremental builds.
@@ -54,6 +60,7 @@ module.exports = function (options) {
              * See: http://webpack.github.io/docs/configuration.html#entry
              */
             entry: {
+                  'bootstrap': bootstrapConfig,
                   'polyfills': './wwwroot/src/polyfills.ts',
                   'main': AOT ? './wwwroot/src/main.aot.ts' : './wwwroot/src/main.ts'
             },
@@ -70,7 +77,7 @@ module.exports = function (options) {
                    *
                    * See: http://webpack.github.io/docs/configuration.html#resolve-extensions
                    */
-                  extensions: ['.ts', '.js', '.json'],
+                  extensions: ['.ts', '.js', '.css', '.scss', '.json', '.html'],
                   //extensions: ['.ts', '.js', '.json', '.scss', '.less', '.css'],
 
                   //(OLD) An array of directory names to be resolved to the current directory
@@ -85,7 +92,6 @@ module.exports = function (options) {
              * See: http://webpack.github.io/docs/configuration.html#module
              */
             module: {
-
                   rules: [
 
                         /*
@@ -151,8 +157,7 @@ module.exports = function (options) {
                         {
                               test: /\.css$/,
                               use: ['to-string-loader', 'css-loader'],
-                              exclude: [helpers.root('node_modules')]
-                              //exclude: [helpers.wwwroot('src/styles')]
+                              exclude: [helpers.root('node_modules'), helpers.wwwroot('src/styles')]
                         },
 
                         /*
@@ -163,8 +168,7 @@ module.exports = function (options) {
                         {
                               test: /\.scss$/,
                               use: ['to-string-loader', 'css-loader', 'sass-loader'],
-                              exclude: [helpers.root('node_modules')]
-                              //exclude: [helpers.wwwroot('src/styles')]                              
+                              exclude: [helpers.root('node_modules'), helpers.wwwroot('src/styles')]
                         },
 
                         /* Raw loader support for *.html
@@ -191,7 +195,8 @@ module.exports = function (options) {
                         {
                               test: /\.(eot|woff2?|svg|ttf)([\?]?.*)$/,
                               use: 'file-loader'
-                        }
+                        },
+                        
 
                   ],
 
@@ -203,6 +208,26 @@ module.exports = function (options) {
              * See: http://webpack.github.io/docs/configuration.html#plugins
              */
             plugins: [
+
+                  new ProvidePlugin({
+                        $: "jquery",
+                        jQuery: "jquery",
+                        "window.jQuery": "jquery",
+                        Tether: "tether",
+                        "window.Tether": "tether",
+                        Alert: "exports-loader?Alert!bootstrap/js/dist/alert",
+                        Button: "exports-loader?Button!bootstrap/js/dist/button",
+                        Carousel: "exports-loader?Carousel!bootstrap/js/dist/carousel",
+                        Collapse: "exports-loader?Collapse!bootstrap/js/dist/collapse",
+                        Dropdown: "exports-loader?Dropdown!bootstrap/js/dist/dropdown",
+                        Modal: "exports-loader?Modal!bootstrap/js/dist/modal",
+                        Popover: "exports-loader?Popover!bootstrap/js/dist/popover",
+                        Scrollspy: "exports-loader?Scrollspy!bootstrap/js/dist/scrollspy",
+                        Tab: "exports-loader?Tab!bootstrap/js/dist/tab",
+                        Tooltip: "exports-loader?Tooltip!bootstrap/js/dist/tooltip",
+                        Util: "exports-loader?Util!bootstrap/js/dist/util",
+                  }),
+
                   new AssetsPlugin({
                         path: helpers.wwwroot('dist'),
                         filename: 'webpack-assets.json',
@@ -298,11 +323,11 @@ module.exports = function (options) {
                   }),
                   new HtmlWebpackPlugin({
                         template: 'wwwroot/src/Index.cshtml',
-                        filename: '../../Views/Home/Index.cshtml',
+                        filename: helpers.views('Home/Index.cshtml'),
                         title: METADATA.title,
                         chunksSortMode: 'dependency',
                         metadata: METADATA,
-						inject: false
+                        inject: false
                   }),
 
                   /*

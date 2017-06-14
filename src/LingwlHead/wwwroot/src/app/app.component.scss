@@ -1,0 +1,48 @@
+@import '../styles/common/variables.scss';
+$icon_size_w: 55px;
+$icon_size_h: 50px;
+
+@mixin icon_size {
+  	width: $icon_size_w;
+	height: $icon_size_h;
+}
+
+nav {
+	background: rgba(255, 255, 255, 0.4);
+}
+
+nav {
+	a {		
+		display: block;
+		margin: 4px;
+		border-radius: 5px;
+	}
+}
+/*to specify concrete icon class: */
+#icon-movie {
+	@include icon_size;
+}
+
+#icon-music {
+	@include icon_size;
+}
+
+#icon-bookmark {
+	@include icon_size;
+}
+
+#icon-book {
+	@include icon_size;
+}
+/*specifing glass effect*/
+nav::before {
+	z-index: -1;
+	content: '';
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	background: $body-background;
+	background-size: cover;
+	filter: blur(10px);
+	-webkit-filter: blur(10px);
+}

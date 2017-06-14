@@ -31,6 +31,7 @@ import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 import { HomeComponent } from './home';
+import { InlineSvgComponent } from './inline-svg';
 import { InnerComponent } from './inner';
 import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
@@ -38,6 +39,12 @@ import { XLargeDirective } from './home/x-large';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
+
+/**
+ * Angular directive for inserting an SVG inline within an element
+ */
+import { InlineSVGModule } from 'ng-inline-svg';
+// InlineSVGModule.forRoot({ baseUrl: 'localhost:8080/' });
 
 // Application wide providers. Provider - thats code which can return or create a service. Typically the service class itself.
 const APP_PROVIDERS = [
@@ -62,13 +69,15 @@ type StoreType = {
 		HomeComponent,
 		NoContentComponent,
 		XLargeDirective,
-		InnerComponent
+		InnerComponent,
+		InlineSvgComponent
 	],
 	imports: [ // import Angular's modules, this modules will be available to all of the components
 		BrowserModule,
 		FormsModule, // ngModel
 		HttpModule,
-		RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
+		RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules }),
+		InlineSVGModule
 	],
 	providers: [ // expose our Services and Providers into Angular's dependency injection
 		ENV_PROVIDERS,

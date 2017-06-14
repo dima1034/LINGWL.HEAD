@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 
 import { AppState } from './app.service';
+import book from '../assets/icon/book.svg';
 
 
 /*
@@ -18,30 +19,56 @@ import { AppState } from './app.service';
 	selector: 'app',
 	encapsulation: ViewEncapsulation.None,
 	styleUrls: [
-		'./app.component.css'
+		'./app.component.scss'
 	],
 	template: `
-    <nav>
-      <a [routerLink]=" ['./'] "
-        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        Index
-      </a>
-      <a [routerLink]=" ['./home'] "
-        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        Home
-      </a>
-      <a [routerLink]=" ['./detail'] "
-        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        Detail
-      </a>
-      <a [routerLink]=" ['./barrel'] "
-        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        Barrel
-      </a>
-      <a [routerLink]=" ['./about'] "
-        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        About
-      </a>
+	 	<inline-svg style="position: absolute"></inline-svg>
+    <nav class="navbar navbar-toggleable-md navbar-light">
+			<div class="collapse navbar-collapse">
+				<ul class="navbar-nav mr-auto">
+					<li  class="nav-item">
+						<a [routerLink]=" ['./'] "
+							routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+							Index
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="movie" [routerLink]=" ['./home'] "
+								routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+								<svg id="icon-movie">
+  <use xlink:href="#movie" />
+</svg>					
+						</a>	
+								
+					</li>
+					<li  class="nav-item">
+						<a class="music" [routerLink]=" ['./detail'] "
+								routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+						<svg id="icon-music">
+  <use xlink:href="#music" />
+</svg>							</a>	
+							
+					</li>
+					<li  class="nav-item">
+						<a class="book" [routerLink]=" ['./barrel'] "
+								routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+					<svg id="icon-book">
+  <use xlink:href="#book" />
+</svg>						</a>	
+							
+						
+					</li>
+					<li  class="nav-item">
+						<a class="bookmark" [routerLink]=" ['./about'] "
+								routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+														
+						<svg id="icon-bookmark">
+  <use xlink:href="#bookmark" />
+</svg>		</a>	
+					
+					</li>
+				</ul>
+      </div>
     </nav>
 
     <main>
@@ -85,5 +112,6 @@ export class AppComponent implements OnInit {
 
 /** DOCUMENTATION
  *  router-outlet(default angular2 feature) - в нем отображаеться шаблон выбраного(в роутере) компонента
- * 
+ *  
+ *  
  */

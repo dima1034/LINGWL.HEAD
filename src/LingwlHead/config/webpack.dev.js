@@ -23,7 +23,7 @@ const DllBundlesPlugin = require('webpack-dll-bundles-plugin').DllBundlesPlugin;
  */
 const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
 const HOST = process.env.HOST || 'localhost';
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 const HMR = helpers.hasProcessFlag('hot');
 const METADATA = webpackMerge(commonConfig({
     env: ENV
@@ -105,19 +105,11 @@ module.exports = function (options) {
 
             rules: [{
                     test: /\.ts$/,
-                    use: [{
-                            loader: 'tslint-loader',
-                            options: { 
-                                configFile: 'tslint.json'
-                            }
-                        }, {
-                            loader: 'angular2-template-loader'
-                        }, {
-                            loader: 'angular-router-loader'
-                        }, {
-                            loader: 'angular2-template-loader'
-                    }],
-
+                    use: [
+                        { loader: 'tslint-loader', options: { configFile: 'tslint.json' }}, 
+                        { loader: 'angular2-template-loader' }, 
+                        { loader: 'angular-router-loader' }, 
+                        { loader: 'angular2-template-loader' }],
                     exclude: [/\.(spec|e2e)\.ts$/]
                 },
 
@@ -128,8 +120,8 @@ module.exports = function (options) {
                  */
                 {
                     test: /\.css$/,
-                    use: ['style-loader', 'css-loader'],
-                    include: [helpers.root('src/styles')]
+                    use: [ 'style-loader', 'css-loader' ],
+                    include: [helpers.wwwroot('src/styles')]
                 },
 
                 /*
@@ -139,8 +131,11 @@ module.exports = function (options) {
                  */
                 {
                     test: /\.scss$/,
-                    use: ['style-loader', 'css-loader', 'sass-loader'],
-                    include: [helpers.root('src/styles')]
+                    loader: ExtractTextPlugin.extract({
+                        fallback: 'style-loader',
+                         use: ['css-loader', 'sass-loader']
+                    }),
+                    include: [helpers.wwwroot('src/styles')]
                 },
 
             ]
@@ -210,7 +205,8 @@ module.exports = function (options) {
              *
              * See: https://github.com/SimenB/add-asset-html-webpack-plugin
              */
-            new AddAssetHtmlPlugin([{
+            new AddAssetHtmlPlugin([
+                {
                     filepath: helpers.wwwroot(`dll/${DllBundlesPlugin.resolveFile('polyfills')}`)
                 },
                 {
@@ -238,6 +234,13 @@ module.exports = function (options) {
                 }
             }),
 
+             /**
+             * Plugin: ExtractTextPlugin
+             * Description: Extracts imported CSS files into external stylesheet
+             *
+             * See: https://github.com/webpack/extract-text-webpack-plugin
+             */
+            new ExtractTextPlugin('style.css')
         ],
 
         /**
@@ -249,6 +252,7 @@ module.exports = function (options) {
          * See: https://webpack.github.io/docs/webpack-dev-server.html
          */
         devServer: {
+            contentBase: helpers.wwwroot('dist'),
             port: METADATA.port,
             host: METADATA.host,
             historyApiFallback: true,

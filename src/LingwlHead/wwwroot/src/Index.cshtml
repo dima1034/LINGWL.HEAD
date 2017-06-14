@@ -8,8 +8,12 @@
         <!-- Configured Head Tags  -->
         <%= webpackConfig.htmlElements.headTags %>
     <% } %>
-    <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+    <!--<% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
         <script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
+    <% } %>-->
+
+    <% for (var chunk in htmlWebpackPlugin.files.js) { %>
+        <script src="<%= htmlWebpackPlugin.files.js[chunk] %>"></script>
     <% } %>
     <!-- base url -->
     <base href="<%= htmlWebpackPlugin.options.metadata.baseUrl %>">
