@@ -32,40 +32,41 @@ import book from '../assets/icon/book.svg';
 							Index
 						</a>
 					</li>
+
 					<li class="nav-item">
 						<a class="movie" [routerLink]=" ['./home'] "
-								routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-								<svg id="icon-movie">
-  <use xlink:href="#movie" />
-</svg>					
-						</a>	
-								
+							routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+							<svg id="icon-movie">
+								<use xlink:href="#movie" />
+							</svg>					
+						</a>									
 					</li>
+
 					<li  class="nav-item">
 						<a class="music" [routerLink]=" ['./detail'] "
 								routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-						<svg id="icon-music">
-  <use xlink:href="#music" />
-</svg>							</a>	
-							
+							<svg id="icon-music">
+								<use xlink:href="#music" />
+							</svg>							
+						</a>								
 					</li>
+
 					<li  class="nav-item">
 						<a class="book" [routerLink]=" ['./barrel'] "
-								routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-					<svg id="icon-book">
-  <use xlink:href="#book" />
-</svg>						</a>	
-							
-						
+							routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+							<svg id="icon-book">
+								<use xlink:href="#book" />
+							</svg>						
+						</a>	
 					</li>
+
 					<li  class="nav-item">
 						<a class="bookmark" [routerLink]=" ['./about'] "
-								routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-														
-						<svg id="icon-bookmark">
-  <use xlink:href="#bookmark" />
-</svg>		</a>	
-					
+							routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+							<svg id="icon-bookmark">
+  							<use xlink:href="#bookmark" />
+							</svg>		
+						</a>					
 					</li>
 				</ul>
       </div>

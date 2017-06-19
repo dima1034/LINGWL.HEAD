@@ -29,21 +29,23 @@ gulp.task('scss:watch', function () {
 
 //wont work properly
 
-// gulp.task('sprites', function () {
-//     return gulp.src('./wwwroot/src/assets/icon/*.svg')
-//         .pipe(svgSymbols({
-//             templates: [
+gulp.task('sprites', function () {
+    return gulp.src('./wwwroot/src/assets/icon/*.svg')
+        .pipe(svgSymbols(
+            //{
+            // templates: [
                 
-//                 path.join(__dirname, './wwwroot/src/app/inline-svg/inline1-svg.css'),
-//                 path.join(__dirname, './wwwroot/src/app/inline-svg/inline1-svg.html'),
-//                 'default-svg',
-//                 'default-css'
-//             ],
-//             className:  '.icon-%f',
-//             id:         'icon-%f',
-//             svgClassname: 'svg-icon-%f',
-//         }))
-//         .pipe(gulp.dest('./wwwroot/src/app/inline1-svg/'));
-// });
+            //     path.join(__dirname, './wwwroot/src/app/inline-svg/inline1-svg.css'),
+            //     path.join(__dirname, './wwwroot/src/app/inline-svg/inline1-svg.html'),
+            //     'default-svg',
+            //     'default-css'
+            // ],
+            // className:  '.icon-%f',
+            // id:         'icon-%f',
+            // svgClassname: 'svg-icon-%f',
+            //}
+        ))
+        .pipe(gulp.dest('./wwwroot/src/assets/icon/symbol-svg/'));
+});
 
 gulp.task('default', []);

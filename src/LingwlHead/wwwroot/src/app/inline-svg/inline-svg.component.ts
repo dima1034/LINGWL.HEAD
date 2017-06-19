@@ -16,4 +16,8 @@ export class InlineSvgComponent implements OnInit {
 	public ngOnInit() {
 		console.log( 'created svg component' );
 	}
+
+	public toggle(event) {
+		console.log(event);
+	}
 }

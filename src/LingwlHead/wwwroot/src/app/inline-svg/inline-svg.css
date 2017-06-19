@@ -3,6 +3,7 @@
 .book-cls-2 { fill: #fff; fill-rule: evenodd; }
 
 .bookmark-cls-1 { fill: red; fill-rule: evenodd; }
+.bookmark-cls-2 { fill: none; stroke: red; stroke-width: 30px; }
 
 .movie-cls-1 { fill-rule: evenodd; }
 .movie-cls-2 { fill: url(#movie-linear-gradient); }

@@ -1,6 +1,6 @@
 @import '../styles/common/variables.scss';
-$icon_size_w: 55px;
-$icon_size_h: 50px;
+$icon_size_w: 40px;
+$icon_size_h: 40px;
 
 @mixin icon_size {
   	width: $icon_size_w;
@@ -9,16 +9,16 @@ $icon_size_h: 50px;
 
 nav {
 	background: rgba(255, 255, 255, 0.4);
+	padding: 0px;
 }
-
 nav {
 	a {		
 		display: block;
-		margin: 4px;
+		margin: 6px;
 		border-radius: 5px;
 	}
 }
-/*to specify concrete icon class: */
+/* here specifed behavior of icons from nav bar */
 #icon-movie {
 	@include icon_size;
 }
@@ -34,6 +34,11 @@ nav {
 #icon-book {
 	@include icon_size;
 }
+#icon-music:hover {
+	fill: red;
+	width: 60px; 
+	height: 60px; 
+} 
 /*specifing glass effect*/
 nav::before {
 	z-index: -1;
